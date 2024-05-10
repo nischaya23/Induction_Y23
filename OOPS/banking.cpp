@@ -18,7 +18,7 @@ string date_curr(void){
 }
 string date_global=date_curr();
 long long int random_gen(){
-    return rand()%999999999+1;
+    return rand()%900000000+100000000;
 }
 
 
@@ -29,9 +29,10 @@ class Account{
     public:
         char type;
         long long int account_no;
-        void deposit(double);
-        void withdraw(double);
-        void transfer(double,long long int account_1,long long int account_2);
+        void deposit(double amt);
+        void withdraw(double amt);
+        void transfer(double amt,long long int account_1,long long int account_2);
+        void show_statement(void);
         
     protected:
        
@@ -39,6 +40,33 @@ class Account{
         string open_date;
         vector <pair<string, double> > account_st;
 };
+
+
+void Account::deposit(double amt){
+    account_bal=account_bal+amt;
+    pair<string,double> stt;
+    stt.first=date_global;
+    stt.second=account_bal;
+    account_st.push_back(stt);
+}
+
+void Account::withdraw(double amt){
+    account_bal=account_bal-amt;
+    pair<string,double> stt;
+    stt.first=date_global;
+    stt.second=account_bal;
+    account_st.push_back(stt);
+}
+
+void Account::transfer(double amt,long long int account_1,long long int account_2){
+    cout<<"NOT AVAILABLE";
+}
+
+void Account::show_statement(void){
+    for(int i=0;i<account_st.size();i++){
+        cout<<i+1<<". "<<account_st[i].first<<" BAL:"<<account_st[i].second<<endl;
+    }
+}
 
 //SAVINGS ACCOUNT
 class Savings_Acc: public Account{
@@ -52,6 +80,10 @@ class Savings_Acc: public Account{
 };
 //constructor
 Savings_Acc::Savings_Acc(long long int open_bal){
+    pair<string,double> stt;
+    stt.first=date_global;
+    stt.second=open_bal;
+    account_st.push_back(stt);
     account_no=random_gen();
     type='S';
     account_bal=open_bal;
@@ -62,7 +94,7 @@ Savings_Acc::Savings_Acc(long long int open_bal){
 //CURRENT ACCOUNT
 class Current_Acc: public Account{
     public:
-        Current_Acc();
+        Current_Acc(long long int open_bal);
         float get_interest_rate(void);
     
     private:
@@ -70,14 +102,19 @@ class Current_Acc: public Account{
 
 };
 //constructor
-Current_Acc::Current_Acc(){
+Current_Acc::Current_Acc(long long int open_bal){
+    pair<string,double> stt;
+    stt.first=date_global;
+    stt.second=open_bal;
+    account_st.push_back(stt);
     account_no=random_gen();
+    account_bal=open_bal;
     type='C';
     open_date=date_global;
 }
 
 
-
+using namespace std;
 
 //BANK HOLDER CLASS
 class Bank_Holder{
@@ -93,6 +130,7 @@ class Bank_Holder{
         void get_Accounts(void);//DONE
         void changepasswd(string s1,string s2);
         void createAccount(char c,long long int amt);
+        void accessAccount(char c,long long int account_no);
         bool checkAccess(string u,string p);//DONE
 };
 //CONSTRUCTOR of Bank_Account_Holder
@@ -101,7 +139,6 @@ Bank_Holder::Bank_Holder(string n,string u, string p){
     username=u;
     password=p;
 }
-
 //FUNCTION DEFINITIONS:
 bool Bank_Holder::checkAccess(string u,string p){
     if((username==u)&&(password==p)){
@@ -119,7 +156,8 @@ void Bank_Holder::get_Accounts(){
     for(int i=0;i<accounts_c.size();i++){
             cout<<"CURRENT ACCOUNT:";
             cout<<accounts_c[i].account_no<<endl;
-    }      
+    }
+    cout<<endl<<endl;      
 }   
 void Bank_Holder::createAccount(char c,long long int amt){
     if(c=='S'||c=='s'){
@@ -127,7 +165,7 @@ void Bank_Holder::createAccount(char c,long long int amt){
         accounts_s.push_back(acc_created);
     }
     else if(c=='C'||c=='c'){
-        Current_Acc acc_created;
+        Current_Acc acc_created(amt);
         accounts_c.push_back(acc_created);
     }
     else{
@@ -144,6 +182,48 @@ void Bank_Holder::changepasswd(string s1,string s2){
     }
 
 }
+void Bank_Holder::accessAccount(char c,long long int account_no1){
+    if(c=='S'||c=='s'){
+        for(int i=0;i<accounts_s.size();i++){
+            if(accounts_s[i].account_no==account_no1){
+                cout<<"ACCESSING ACCOUNT WITH ACCOUNT NO:"<<account_no1<<endl<<endl;
+                cout<<"You can perform the following functions:\n1.DEPOSIT MONEY\n2.WITHDRAW MONEY\n3.TRANSFER MONEY\n4.VIEW STATEMENT\n5.CLOSE ACCOUNT\n";
+                cout<<"Please choose your operation(1/2/3/4/5/0->to exit):";
+                char num;
+                cin>>num;
+                if(num=='1'){
+                    cout<<"Enter the money to deposit:";
+                    double amt_usr;
+                    cin>>amt_usr;
+                    accounts_s[i].deposit(amt_usr);
+                }
+                else if(num=='2'){
+                    cout<<"Enter the money to withdraw:";
+                    double amt_usr;
+                    cin>>amt_usr;
+                    accounts_s[i].withdraw(amt_usr);
+                }
+                else if(num=='3'){
+                    accounts_s[i].transfer(0,0,0);
+                }
+                else if(num=='4'){
+                    cout<<"SHOWING YOUR STATEMENT:\n";
+                    accounts_s[i].show_statement();
+
+                }
+            }
+        }
+    }
+    else if(c=='C'||c=='c'){
+         for(int i=0;i<accounts_c.size();i++){
+            if(accounts_c[i].account_no==account_no1){
+                cout<<"ACCESSING ACCOUNT WITH ACCOUNT NO:"<<account_no1<<endl<<endl;
+            }
+        }
+
+    }
+}
+
 
 int main(){
     vector <Bank_Holder> Bank_Holder_list;
@@ -211,6 +291,8 @@ int main(){
                 }
             }
         }
+        
+        //LOGIN 
         if(b=='1'){
             cout<<"                               LOGIN"<<endl;
             string login_usr,login_pw;
@@ -224,14 +306,16 @@ int main(){
                     int choice=50;
                     cout<<"SUCCESSFULLY LOGGED IN"<<endl;
                     while(choice!=0){    
-                        cout<<"WHICH OPERATION DO YOU WANT TO PERFORM:\n1.Show all your accounts.\n2.Change password\n3.Create a new Account.\n";
-                        cout<<"Please choose any operation (1/2/3/0-TO EXIT)";
+                        cout<<"WHICH OPERATION DO YOU WANT TO PERFORM:\n1.Show all your accounts.\n2.Change password\n3.Create a new Account.\n4.Access Account by Account num.\n";
+                        cout<<"Please choose any operation (1/2/3/4/0-TO EXIT)";
                         cin>>choice;
-                    
+
+                        //LIST ALL ACCOUNTS
                         if(choice==1){
                            
                             Bank_Holder_list[i].get_Accounts();
                         }
+                        //CHANGE PASSWORD
                         else if(choice==2){
                             string s1,s2;
                             cout<<"Please enter NEW PASSWORD:";
@@ -240,8 +324,10 @@ int main(){
                             cin>>s2;
                             Bank_Holder_list[i].changepasswd(s1,s2);
                         }
+                        //CREATE NEW ACCOUNT
                         else if(choice==3){
-                            cout<<"Choose your type:\n1.SAVINGS(S)\n2.CURRENT(C)"<<endl;
+                            cout<<"TYPES OF ACCOUNTS:\n1.SAVINGS(S)\n2.CURRENT(C)"<<endl;
+                            cout<<"Choose type(S/C):";
                             char c;
                             cin>>c;
                             if(c=='S'||c=='s'){
@@ -259,10 +345,37 @@ int main(){
                                 Bank_Holder_list[i].createAccount(c,amt);
                             }
                             else if(c=='c'||c=='C'){
-                                Bank_Holder_list[i].createAccount(c,0);
+                                cout<<"ENTER OPENING BALANCE AND DEPOSIT IT:"<<endl;
+                                long long int amt;
+                                while(1){
+                                    cin>>amt;
+                                    if(amt<=0){
+                                        cout<<"Please enter non zero balance";
+                                    }
+                                    else{
+                                        break;
+                                    }
+                                }
+                                Bank_Holder_list[i].createAccount(c,amt);
                             }
                         }
+                        //ACCESS A SPECIFIC ACCOUNT
+                        else if(choice==4){
+                            char u;
+                            cout<<"Please Enter your account type(S/C):";
+                            cin>>u;
+                            long long int account_num;
+                            cout<<"Please type your account number:";
+                            cin>>account_num;
+                            
+                            
+                            Bank_Holder_list[i].accessAccount(u,account_num);
+
+                        }
+                    
+                    
                     }
+
                     break;
                 }
                 else{
