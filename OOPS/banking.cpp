@@ -41,6 +41,7 @@ class Bank_Holder{
         void get_Accounts(void);
         void changepasswd(void);
         void createAccount(void);
+        void set_data(string n,string u, string p);
 
 };
 
@@ -72,11 +73,14 @@ int main(){
 
     while(1){
         cout<<"Welcome to Banking Services!!"<<endl;
-        cout<<"Are you a New user?(Y/N):";
+        cout<<"Do you want to LOGIN or SIGNUP(1/2):";
         char b;
         cin>>b;
-        if(b=='Y'){
-            cout<<"           SIGN UP "<<endl;
+        if(b=='2'){
+            cout<<"               SIGN UP "<<endl;
+            cout<<"Please Enter your name:";
+            string name;
+            cin>>name;
             int x=1;
             while(x){
                 cout<<"Please enter a username:";
@@ -89,8 +93,31 @@ int main(){
                 }
                 else{
                     username_list.push_back(user_username);
-                    cout<<"Username set successfully"<<endl;
-                    cout<<"Exiting while loop"<<endl;
+                    cout<<"Username set successfully!!"<<endl;
+                    string pass;
+                    string pass_chk;
+                    while(1){
+                        cout<<"Please Enter your password:";
+                        cin>>pass;
+                        cout<<"Renter your password:";
+                        cin>>pass_chk;
+                        if(pass==pass_chk){
+                            cout<<"Password set successfully!!"<<endl;
+                            break;
+                        }
+                        else{
+                            cout<<"Passwords donot match, please renter them."<<endl;
+                            continue;
+                        }
+
+                    }
+
+                    //CREATING OBJECT OF USER AND STORING IT IN VECTOR
+                    Bank_Holder Usr;
+                    Usr.set_data(name,user_username,pass);
+                    Bank_Holder_list.push_back(Usr);
+
+                    
                     break;
                 }
             }
