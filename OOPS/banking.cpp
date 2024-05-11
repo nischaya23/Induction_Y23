@@ -383,7 +383,9 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
                 }
                 else if(num=='4'){
                     cout<<"SHOWING YOUR STATEMENT:\n";
-                    accounts_s_g[i]->interest(diff(month(date_global_s),month(date_global)));
+                    if(date_global_s!=date_global){
+                        accounts_s_g[i]->interest(diff(month(date_global_s),month(date_global)));
+                    }
                     accounts_s_g[i]->show_statement();
 
                 }
