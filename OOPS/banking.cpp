@@ -6,17 +6,39 @@ using namespace std;
 
 double MAX_BAL=100000000;//MAX BALANCE 10 cr
 
+//TIME VARIATION
 string date_curr(void){
     time_t rawtime;
     struct tm * timeinfo;
     char buffer [100];
     time (&rawtime);
     timeinfo = localtime (&rawtime);
-    strftime (buffer,100,"%D",timeinfo);
+    strftime (buffer,100,"%F",timeinfo);
     string a(buffer);
     return a;
 }
+string date_global_s=date_curr();
 string date_global=date_curr();
+
+string date_change(int m, int d, int y){
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer [100];
+    time (&rawtime);
+    timeinfo = localtime (&rawtime);
+    timeinfo->tm_mday=d;
+    timeinfo->tm_mon=m;
+    timeinfo->tm_year=y;
+    strftime (buffer,100,"%F",timeinfo);
+    string a(buffer);
+    return a;
+}
+
+
+
+
+
+
 long long int random_gen(){
     return rand()%900000000+100000000;
 }
@@ -38,35 +60,53 @@ class Account{
        
         double account_bal;
         string open_date;
-        vector <pair<string, double> > account_st;
+        vector <pair<pair<string,double>,pair<string, double> > > account_st;
 };
-
-
+//FUNCTIONS OF ACCOUNT CLASS
 void Account::deposit(double amt){
     account_bal=account_bal+amt;
     pair<string,double> stt;
     stt.first=date_global;
     stt.second=account_bal;
-    account_st.push_back(stt);
-}
 
+    pair<string,double> stt_chg;
+    stt_chg.first="DEPOSITED Rs";
+    stt_chg.second=amt;
+
+    pair<pair<string,double>,pair<string,double> > PAIR;
+
+    PAIR.first=stt;
+    PAIR.second=stt_chg;
+
+
+    account_st.push_back(PAIR);
+}
 void Account::withdraw(double amt){
     account_bal=account_bal-amt;
     pair<string,double> stt;
     stt.first=date_global;
     stt.second=account_bal;
-    account_st.push_back(stt);
-}
+    
+    pair<string,double> stt_chg;
+    stt_chg.first="WITHDRAWN Rs";
+    stt_chg.second=amt;
 
+    pair<pair<string,double>,pair<string,double> > PAIR;
+    PAIR.first=stt;
+    PAIR.second=stt_chg;
+
+    account_st.push_back(PAIR);
+}
 void Account::transfer(double amt,long long int account_1,long long int account_2){
     cout<<"NOT AVAILABLE";
 }
-
 void Account::show_statement(void){
-    for(int i=0;i<account_st.size();i++){
-        cout<<i+1<<". "<<account_st[i].first<<" BAL:"<<account_st[i].second<<endl;
+    for(int i=account_st.size()-1;i>=0;i--){
+        cout<<i+1<<". "<<account_st[i].first.first<<" "<<account_st[i].second.first<<account_st[i].second.second<<" FINAL BAL:"<<account_st[i].first.second<<endl;
     }
 }
+
+
 
 //SAVINGS ACCOUNT
 class Savings_Acc: public Account{
@@ -78,18 +118,25 @@ class Savings_Acc: public Account{
     private:
         float interest_rate;//IN PERCENTAGE
 };
-//constructor
+//constructor of SAVINGS
 Savings_Acc::Savings_Acc(long long int open_bal){
     pair<string,double> stt;
     stt.first=date_global;
     stt.second=open_bal;
-    account_st.push_back(stt);
+    pair<string,double> stt_chg;
+    stt_chg.first="DEPOSITED Rs";
+    stt_chg.second=open_bal;
+    
+    pair<pair<string,double>,pair<string,double> > PAIR;
+    PAIR.first=stt;
+    PAIR.second=stt_chg;
+    
+    account_st.push_back(PAIR);
     account_no=random_gen();
     type='S';
     account_bal=open_bal;
     open_date=date_global;
 }
-
 
 //CURRENT ACCOUNT
 class Current_Acc: public Account{
@@ -101,12 +148,21 @@ class Current_Acc: public Account{
         float interest_rate=0;
 
 };
-//constructor
+//constructor of CURRENT
 Current_Acc::Current_Acc(long long int open_bal){
     pair<string,double> stt;
     stt.first=date_global;
     stt.second=open_bal;
-    account_st.push_back(stt);
+
+    pair<string,double> stt_chg;
+    stt_chg.first="DEPOSITED Rs";
+    stt_chg.second=open_bal;
+
+    pair<pair<string,double>,pair<string,double> > PAIR;
+
+    PAIR.first=stt;
+    PAIR.second=stt_chg;
+    account_st.push_back(PAIR);
     account_no=random_gen();
     account_bal=open_bal;
     type='C';
@@ -114,7 +170,6 @@ Current_Acc::Current_Acc(long long int open_bal){
 }
 
 
-using namespace std;
 
 //BANK HOLDER CLASS
 class Bank_Holder{
@@ -187,6 +242,7 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
         for(int i=0;i<accounts_s.size();i++){
             if(accounts_s[i].account_no==account_no1){
                 cout<<"ACCESSING ACCOUNT WITH ACCOUNT NO:"<<account_no1<<endl<<endl;
+                while(1){
                 cout<<"You can perform the following functions:\n1.DEPOSIT MONEY\n2.WITHDRAW MONEY\n3.TRANSFER MONEY\n4.VIEW STATEMENT\n5.CLOSE ACCOUNT\n";
                 cout<<"Please choose your operation(1/2/3/4/5/0->to exit):";
                 char num;
@@ -211,6 +267,15 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
                     accounts_s[i].show_statement();
 
                 }
+                else if(num=='5'){
+                    cout<<"CLOSING YOUR ACCOUNT!!\n";
+                    accounts_s.erase(accounts_s.begin()+i);
+
+                }
+                else if(num=='0'){
+                    break;
+                }
+            }
             }
         }
     }
@@ -218,6 +283,40 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
          for(int i=0;i<accounts_c.size();i++){
             if(accounts_c[i].account_no==account_no1){
                 cout<<"ACCESSING ACCOUNT WITH ACCOUNT NO:"<<account_no1<<endl<<endl;
+                while(1){
+                    cout<<"You can perform the following functions:\n1.DEPOSIT MONEY\n2.WITHDRAW MONEY\n3.TRANSFER MONEY\n4.VIEW STATEMENT\n5.CLOSE ACCOUNT\n";
+                    cout<<"Please choose your operation(1/2/3/4/5/0->to exit):";
+                    char num;
+                    cin>>num;
+                    if(num=='1'){
+                        cout<<"Enter the money to deposit:";
+                        double amt_usr;
+                        cin>>amt_usr;
+                        accounts_c[i].deposit(amt_usr);
+                    }
+                    else if(num=='2'){
+                        cout<<"Enter the money to withdraw:";
+                        double amt_usr;
+                        cin>>amt_usr;
+                        accounts_c[i].withdraw(amt_usr);
+                    }
+                    else if(num=='3'){
+                        accounts_c[i].transfer(0,0,0);
+                    }
+                    else if(num=='4'){
+                        cout<<"SHOWING YOUR STATEMENT:\n";
+                        accounts_c[i].show_statement();
+
+                    }
+                    else if(num=='5'){
+                        cout<<"CLOSING YOUR ACCOUNT!!\n";
+                        accounts_c.erase(accounts_c.begin()+i);
+                    }
+                    else if(num=='0'){
+                        break;
+                    }
+
+                }
             }
         }
 
@@ -225,26 +324,57 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
 }
 
 
+
+
+class BranchManager{
+    private:
+        string username;
+        string password;
+    public:
+        BranchManager(string s1,string s2);
+        void Fast_Fwd();
+        void getStatement(long long int account_num);
+        void getAccountHolders();
+};
+
+BranchManager::BranchManager(string s1,string s2){
+    username=s1;
+    password=s2;
+}
+
+void Fast_Fwd(string &s,string m,string d,string y){
+    string cpy=s;
+    s=date_change(stoi(m),stoi(d),stoi(y));
+
+
+
+
+
+
+}
 int main(){
     vector <Bank_Holder> Bank_Holder_list;
     vector <string> username_list;
     string user_bm_rl,user_bm_rl_pw;
     char a;
     cout<<"Hello, Bank Manager"<<endl;
-    cout<<"Please create your login_id by using new username and password"<<endl;
-    cout<<"Please enter your bank username:";
+    cout<<"Create your login_id by using new username and password"<<endl;
+    cout<<"Create your branch manager username:";
     cin>>user_bm_rl;
 
-    cout<<"Please enter your bank password:";
+    cout<<"Create your brnach manager password:";
     cin>>user_bm_rl_pw;
+
+    BranchManager New(user_bm_rl,user_bm_rl_pw);
 
     cout<<"To Start the baking session please press E:";
     while(a!='E'){
         cin>>a;
     }
+    cout<<"\n\n";
 
     while(1){
-        cout<<"          #      Welcome to Banking Services!!      #"<<endl<<endl;
+        cout<<"            #      Welcome to Banking Services!!      #"<<endl<<endl;
         cout<<"Do you want to LOGIN or SIGNUP(1/2):";
         char b;
         cin>>b;
