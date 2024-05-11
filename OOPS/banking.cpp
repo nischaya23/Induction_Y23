@@ -2,9 +2,14 @@
 #include<vector>
 #include<algorithm>
 #include<time.h>
+#include<memory>
 using namespace std;
 
 double MAX_BAL=100000000;//MAX BALANCE 10 cr
+
+//GLOBAL LIST FOR BRANCH MANAGER
+vector <pair<string, long long int> > NAME_ACC;
+
 
 //TIME VARIATION
 string date_curr(void){
@@ -27,11 +32,42 @@ string date_change(int m, int d, int y){
     time (&rawtime);
     timeinfo = localtime (&rawtime);
     timeinfo->tm_mday=d;
-    timeinfo->tm_mon=m;
-    timeinfo->tm_year=y;
+    timeinfo->tm_mon=m-1;
+    timeinfo->tm_year=y-1900;
     strftime (buffer,100,"%F",timeinfo);
     string a(buffer);
     return a;
+}
+pair<int,int> month(string s1){
+    string sub=s1.substr(5,2);
+    int mon=stoi(sub);
+    int y=stoi(s1.substr(0,4));
+    pair<int,int> a;
+    a.first=mon;
+    a.second=y;
+    return a;
+}
+int diff(pair<int,int> p1, pair<int,int> p2){
+    int m1=p1.first;
+    int m2=p2.first;
+    int y1=p1.second;
+    int y2=p2.second;
+    if (y2!=y1)
+    {   
+        if(m2>m1){
+            return m2-m1+(y2-y1)*12;
+        }
+        else if(m2==m1){
+            return (y2-y1)*12;
+        }
+        else{
+            return (12+m1-m2)+(y2-y1-1)*12;
+        }
+    }
+    else {
+        return m2-m1;
+    }
+    
 }
 
 
@@ -49,17 +85,19 @@ long long int random_gen(){
 //ACCOUNTS CLASS
 class Account{
     public:
+        string name;
         char type;
         long long int account_no;
         void deposit(double amt);
         void withdraw(double amt);
         void transfer(double amt,long long int account_1,long long int account_2);
         void show_statement(void);
+        string open_date;
         
     protected:
        
         double account_bal;
-        string open_date;
+        
         vector <pair<pair<string,double>,pair<string, double> > > account_st;
 };
 //FUNCTIONS OF ACCOUNT CLASS
@@ -111,15 +149,16 @@ void Account::show_statement(void){
 //SAVINGS ACCOUNT
 class Savings_Acc: public Account{
     public:
-        Savings_Acc(long long int open_bal);
-        float get_interest_rate(void);
+        Savings_Acc(long long int open_bal,string name);
+        double get_interest_rate(void);
         void set_interest_rate(void);
+        void interest(int month);
 
     private:
-        float interest_rate;//IN PERCENTAGE
+        double interest_rate;//IN PERCENTAGE
 };
 //constructor of SAVINGS
-Savings_Acc::Savings_Acc(long long int open_bal){
+Savings_Acc::Savings_Acc(long long int open_bal,string name){
     pair<string,double> stt;
     stt.first=date_global;
     stt.second=open_bal;
@@ -133,23 +172,44 @@ Savings_Acc::Savings_Acc(long long int open_bal){
     
     account_st.push_back(PAIR);
     account_no=random_gen();
+    pair<string,long long int> Data;
+    Data.first=name;
+    Data.second=account_no;
+    NAME_ACC.push_back(Data);
     type='S';
     account_bal=open_bal;
     open_date=date_global;
 }
 
+double interest1(double interestr,int month){
+    double interestrr=1;
+    while(month>0){
+        interestrr=interestrr*((double)1+interestr/100);
+        month--;
+    }
+    return interestrr;
+}
+double Savings_Acc::get_interest_rate(void){
+    return 6.0;
+}
+void Savings_Acc::interest(int month){
+            deposit(account_bal*interest1(get_interest_rate(),month)-account_bal);
+            date_global_s=date_global;
+}
+
+
 //CURRENT ACCOUNT
 class Current_Acc: public Account{
     public:
-        Current_Acc(long long int open_bal);
+        Current_Acc(long long int open_bal,string name);
         float get_interest_rate(void);
     
     private:
-        float interest_rate=0;
+        double interest_rate;
 
 };
 //constructor of CURRENT
-Current_Acc::Current_Acc(long long int open_bal){
+Current_Acc::Current_Acc(long long int open_bal,string name){
     pair<string,double> stt;
     stt.first=date_global;
     stt.second=open_bal;
@@ -164,27 +224,32 @@ Current_Acc::Current_Acc(long long int open_bal){
     PAIR.second=stt_chg;
     account_st.push_back(PAIR);
     account_no=random_gen();
+    pair<string,long long int> Data;
+    Data.first=name;
+    Data.second=account_no;
+    NAME_ACC.push_back(Data);
     account_bal=open_bal;
     type='C';
     open_date=date_global;
 }
 
-
+vector<shared_ptr<Savings_Acc> > accounts_s_g;
+vector <Current_Acc *> accounts_c_g;
 
 //BANK HOLDER CLASS
 class Bank_Holder{
     private:
-        string name;
         string username;
         string password;
         vector <Account> accounts;
         vector <Savings_Acc> accounts_s;
         vector <Current_Acc> accounts_c;
     public:    
+        string name;
         Bank_Holder(string n,string u, string p);
         void get_Accounts(void);//DONE
         void changepasswd(string s1,string s2);
-        void createAccount(char c,long long int amt);
+        void createAccount(char c,long long int amt,string name1);
         void accessAccount(char c,long long int account_no);
         bool checkAccess(string u,string p);//DONE
 };
@@ -203,6 +268,7 @@ bool Bank_Holder::checkAccess(string u,string p){
         return false;
     }
 }
+
 void Bank_Holder::get_Accounts(){
     for(int i=0;i<accounts_s.size();i++){
             cout<<"SAVINGS ACCOUNT:";
@@ -214,14 +280,17 @@ void Bank_Holder::get_Accounts(){
     }
     cout<<endl<<endl;      
 }   
-void Bank_Holder::createAccount(char c,long long int amt){
+void Bank_Holder::createAccount(char c,long long int amt,string name1){
     if(c=='S'||c=='s'){
-        Savings_Acc acc_created(amt);
-        accounts_s.push_back(acc_created);
+        shared_ptr<Savings_Acc> acc_created = make_shared<Savings_Acc>(amt, name1);
+        accounts_s.push_back(*acc_created); // Add the object to the vector
+        accounts_s_g.push_back(acc_created);
     }
     else if(c=='C'||c=='c'){
-        Current_Acc acc_created(amt);
+        Current_Acc acc_created(amt,name1);
         accounts_c.push_back(acc_created);
+        int p=accounts_c.size()-1;
+        accounts_c_g.push_back(&(accounts_c[p]));
     }
     else{
         cout<<"Please enter valid input";
@@ -242,6 +311,13 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
         for(int i=0;i<accounts_s.size();i++){
             if(accounts_s[i].account_no==account_no1){
                 cout<<"ACCESSING ACCOUNT WITH ACCOUNT NO:"<<account_no1<<endl<<endl;
+                pair<int, int> PAIR1,PAIR2;
+                PAIR1=month(date_global_s);
+                PAIR2=month(date_global);
+                int diffmont=diff(PAIR1,PAIR2);
+                if(date_global_s!=date_global){
+                    accounts_s[i].interest(diffmont);
+                }
                 while(1){
                 cout<<"You can perform the following functions:\n1.DEPOSIT MONEY\n2.WITHDRAW MONEY\n3.TRANSFER MONEY\n4.VIEW STATEMENT\n5.CLOSE ACCOUNT\n";
                 cout<<"Please choose your operation(1/2/3/4/5/0->to exit):";
@@ -276,6 +352,9 @@ void Bank_Holder::accessAccount(char c,long long int account_no1){
                     break;
                 }
             }
+            
+
+
             }
         }
     }
@@ -331,9 +410,10 @@ class BranchManager{
         string username;
         string password;
     public:
+        bool check(string s1,string s2);
         BranchManager(string s1,string s2);
-        void Fast_Fwd();
-        void getStatement(long long int account_num);
+        void Fast_Fwd(string &s,string m,string d,string y);
+        void getStatement(long long int account_num,char c);
         void getAccountHolders();
 };
 
@@ -342,22 +422,60 @@ BranchManager::BranchManager(string s1,string s2){
     password=s2;
 }
 
-void Fast_Fwd(string &s,string m,string d,string y){
-    string cpy=s;
-    s=date_change(stoi(m),stoi(d),stoi(y));
-
-
-
-
-
+bool BranchManager::check(string s1,string s2){
+    if((username==s1)&&(password==s2)){
+        return true;
+    }
+    else{
+        return false;
+    }
 
 }
+
+void BranchManager::Fast_Fwd(string &s,string m,string d,string y){
+    string cpy=s;
+    s=date_change(stoi(m),stoi(d),stoi(y));
+}
+
+void BranchManager::getAccountHolders(){
+    for(int i=0;i<NAME_ACC.size();i++){
+        cout<<NAME_ACC[i].first<<": "<<NAME_ACC[i].second<<endl;
+    }
+}
+
+void BranchManager::getStatement(long long int acc_num,char c){
+    if(c=='s'||c=='S'){
+        for(int i=0;i<accounts_s_g.size();i++){
+            cout<<accounts_s_g[i]->account_no<<endl;
+            if(accounts_s_g[i]->account_no==acc_num){
+                cout<<"enter";
+                accounts_s_g[i]->show_statement();
+            }
+        }
+    }
+    else if(c=='c'||c=='C'){
+         for(int i=0;i<accounts_c_g.size();i++){
+            if(accounts_c_g[i]->account_no==acc_num){
+                accounts_c_g[i]->show_statement();
+            }
+        }
+
+
+    }
+    
+}
+
+
+//TIME
+
+
+
 int main(){
     vector <Bank_Holder> Bank_Holder_list;
     vector <string> username_list;
     string user_bm_rl,user_bm_rl_pw;
     char a;
-    cout<<"Hello, Bank Manager"<<endl;
+    std::cout<<"Hello, Bank Manager"<<endl;
     cout<<"Create your login_id by using new username and password"<<endl;
     cout<<"Create your branch manager username:";
     cin>>user_bm_rl;
@@ -372,6 +490,9 @@ int main(){
         cin>>a;
     }
     cout<<"\n\n";
+    date_global_s=date_curr();
+    string cpy=date_global_s;
+    
 
     while(1){
         cout<<"            #      Welcome to Banking Services!!      #"<<endl<<endl;
@@ -472,7 +593,7 @@ int main(){
                                         break;
                                     }
                                 }
-                                Bank_Holder_list[i].createAccount(c,amt);
+                                Bank_Holder_list[i].createAccount(c,amt,Bank_Holder_list[i].name);
                             }
                             else if(c=='c'||c=='C'){
                                 cout<<"ENTER OPENING BALANCE AND DEPOSIT IT:"<<endl;
@@ -486,7 +607,8 @@ int main(){
                                         break;
                                     }
                                 }
-                                Bank_Holder_list[i].createAccount(c,amt);
+                                Bank_Holder_list[i].createAccount(c,amt,Bank_Holder_list[i].name);
+                                
                             }
                         }
                         //ACCESS A SPECIFIC ACCOUNT
@@ -516,8 +638,60 @@ int main(){
             
             
         }
-    
-    
+
+
+        //BRANCH MANAGER LOGIN
+        if(b=='M'){
+            string user_br;
+            string user_br_pw;
+            cout<<"BRANCH MANAGER LOGIN"<<endl;
+            cout<<"PLEASE ENTER USERNAME:";
+            cin>>user_br;
+            cout<<"PLEASE ENTER PASSWORD:";
+            cin>>user_br_pw;
+            if(New.check(user_br,user_br_pw)){
+                cout<<endl<<endl;
+                int num=3;
+                cout<<"WELCOME BRANCH MANANGER"<<endl;
+                while(1){
+                cout<<"Choose your desired function:"<<endl;
+                cout<<"1.List Info of all accounts active\n2.Skip Time\n";
+                cout<<"Please enter(1/2/0->to exit):";
+                cin>>num;
+                if(num==1){
+                    New.getAccountHolders();
+                }
+                else if(num==2){
+                    string m,d,y;
+                    cout<<"Enter the final date you want as:\n";
+                    cout<<"1.MM:";
+                    cin>>m;
+                    cout<<"2.DD:";
+                    cin>>d;
+                    cout<<"3.YYYY:";
+                    cin>>y;
+                    New.Fast_Fwd(date_global,m,d,y);
+                }
+                else if(num==3){
+                    int acc_num;
+                    cout<<"Please enter account num:";
+                    cin>>acc_num;
+                    cout<<"Please enter account type(S/C):";
+                    char c;
+                    cin>>c;
+                    New.getStatement(acc_num,c);
+                }
+                else if(num==0){
+                cout<<"EXITING"<<endl;
+                break;
+                }
+                }
+            }
+            else{
+                cout<<"WRONG USERNAME OR PASSWORD";
+            }
+
+        }
     
     }
 
