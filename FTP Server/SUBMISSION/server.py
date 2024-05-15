@@ -9,26 +9,73 @@ server.bind((IP_ADDR,port))
 server.listen()
 
 clients=[]
-dict1={"abc":"123"}
-list1=[]
+dict1={"abc":"123","abd":"123"}
+list1=["test","test2"]
 
-def stor(filename):
+def listfiles(client):
+    listing = [f for f in os.listdir("./files") ]
+    if len(listing)!=0:
+        mess="\n".join(listing)
+        client.send(mess.encode())
+    else:
+        mess="NO FILES STORED CURRENTLY"
+        client.send(mess.encode())
+
+def stor(client,filename):
+    list1.append(filename)
+    data = client.recv(1024).decode() 
+
+
+    filename1 = filename
+    with open("./files/"+filename1, 'w') as fileadd:
+        fileadd.write(data) 
+
+    print('Received successfully the file:', filename) 
     return
 
-def retr(filename):
-    return
+def retr(client,filename):
+    if os.path.isfile("./files/"+filename):
+        try:
+            client.send("EXISTS".encode())
+            with open("./files/"+filename,'r') as file:
+                print("TRANSFER INITIATE")
+                data=file.read()
+                client.send(str(data).encode())
+            os.remove("./files/"+filename)
+            print("TRANSFER COMPLETED")
+        except IOError:
+            print("File not Found")
+    else:
+        client.send("NO".encode())
+
+
+
+
+
+
 
 def client_options(message,client):
     try:
         if(message=="1"):
             print("LIST")
-            
+            listfiles(client)
+        
         elif(message=="2"):
             print("STORE")
+            filename=client.recv(1024).decode()
+            if os.path.isfile("./files/"+filename):
+                client.send("1".encode())
+            else:
+                client.send("2".encode())
+                stor(client,filename)
+            
            
         elif(message=="3"):
             print("RETR")
-            
+            name_file=client.recv(1024).decode()
+            retr(client,name_file)
+        
+        
         elif(message=="4"):
             print("QUIT")
             client.close()
@@ -92,3 +139,4 @@ def accept_client():
 
 if __name__=="__main__":
     accept_client()
+    server.close()
