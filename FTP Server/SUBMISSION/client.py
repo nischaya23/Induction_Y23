@@ -5,11 +5,13 @@ import os
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 IP_ADDR = socket.gethostbyname(socket.gethostname())
 port = 23056
+
 username=input("Please Enter your USERNAME:")
 password=input("Please Enter your PASSWORD:")
 
 client.connect((IP_ADDR,port))
 message = client.recv(1024).decode()
+
 
 
 def client_handle(client,sendm):
@@ -26,16 +28,24 @@ def client_handle(client,sendm):
                 return
             else:
                 try:
-                    with open(m1,'r') as File:
-                        print("Sending File")
-                        data = File.read() 
-                        client.send(str(data).encode()) 
-                    os.remove(m1) 
+                    print("Sending File")
+                    with open(m1, 'rb') as file:
+                        # Read the image data
+                        image_data = file.read()
+                    # Send the image size first
+                    client.sendall(len(image_data).to_bytes(4, byteorder='big'))
+                    # Send the image data
+                    client.sendall(image_data)
+                    os.remove(m1)
                     print("File Sent")
                 except IOError:
                     print("Entered invalid filename!!\nPlease re-enter filename.")
         else:
             print("FILE doesn't exist")
+            client.send("+++!!!NO!!!+++".encode())#COUNTER NAME TO TELL SERVER TO NOT EXECUTE ANY COMMAND
+
+
+
     if(sendm=="3"):
         m2=input("Please enter name of file you want to retrieve:")
         client.send(m2.encode())
@@ -43,13 +53,21 @@ def client_handle(client,sendm):
         if(y=="EXISTS"):
             try: 
                 print("Started Accepting.....")
-                data=client.recv(1024).decode()
                 filename1=m2
-                with open(filename1,'w') as file:
-                    file.write(data)
+                image_size_bytes = client.recv(4)
+                image_size = int.from_bytes(image_size_bytes, byteorder='big')
+                image_data = b''
+                while len(image_data) < image_size:
+                    chunk = client.recv(image_size - len(image_data))
+                    if not chunk:
+                        break
+                    image_data += chunk
+                with open(filename1, 'wb') as file:
+                    file.write(image_data)
                 print("File Accepted")
+                return
             except IOError:
-                print("File Already EXISTS with you")
+                print("InputOutput ERROR")
         
         else:
             print("File Doesn't Exist")
@@ -64,19 +82,26 @@ if message == "USERNAME":
         client.send(password.encode())
         m2=client.recv(1024).decode()
         if(m2=="CONNECTED"):
-            print("SUCCESSFULLY Connected")
-            while(True):
-                print("Choose your OPERATION:\n1.LIST\n2.STORE\n3.RETR\n4.QUIT")
-                sendm=input("Please choose(1/2/3/4):")
-                if sendm not in ["1","2","3","4"]:
-                    client.send(sendm.encode())
-                    print("INVALID INPUT")
-                    break
-                elif sendm in ["4"]:
-                    client.send(sendm.encode())
-                    print("QUITTING.....")
-                    break
-                else:
-                    client.send(sendm.encode())
-                    client_handle(client,sendm)
-
+            m3=client.recv(1024).decode()
+            if(m3=="UNBANNED"):
+                print("SUCCESSFULLY Connected")
+                while(True):
+                    # print("Type of")
+                    
+                    print("Choose your OPERATION:\n1.LIST\n2.STORE\n3.RETR\n4.QUIT")
+                    sendm=input("Please choose(1/2/3/4):")
+                    if sendm not in ["1","2","3","4"]:
+                        client.send(sendm.encode())
+                        print("INVALID INPUT")
+                        break
+                    elif sendm in ["4"]:
+                        client.send(sendm.encode())
+                        print("QUITTING.....")
+                        break
+                    else:
+                        client.send(sendm.encode())
+                        client_handle(client,sendm)
+            elif(m3=="BANNED"):
+                print("Your account is banned")
+        else:
+            print("Wrong USERNAME or PASSWORD")
