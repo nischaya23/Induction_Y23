@@ -1,0 +1,6 @@
+devel_space: /home/nischayvagarwal/catkin_ws_2/devel
+install: false
+install_space: /home/nischayvagarwal/catkin_ws_2/install
+profile: default
+source_space: /home/nischayvagarwal/catkin_ws_2/src
+workspace: /home/nischayvagarwal/catkin_ws_2

@@ -1,0 +1,30 @@
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:11:33:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::NodeHandle(char)[m[K’
+   11 |   ros::NodeHandle nodeHandle('~'[01;31m[K)[m[K;
+      |                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:156:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const ros::NodeHandle&, const string&, const M_string&)[m[K’
+  156 |     [01;36m[KNodeHandle[m[K(const NodeHandle& parent, const std::string& ns, const M_string& remappings);
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:156:5:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 1 provided
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:134:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const ros::NodeHandle&, const string&)[m[K’
+  134 |     [01;36m[KNodeHandle[m[K(const NodeHandle& parent, const std::string& ns);
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:134:5:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:112:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const ros::NodeHandle&)[m[K’
+  112 |     [01;36m[KNodeHandle[m[K(const NodeHandle& rhs);
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:112:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar[m[K’ to ‘[01m[Kconst ros::NodeHandle&[m[K’
+  112 |     NodeHandle([01;36m[Kconst NodeHandle& rhs[m[K);
+      |                [01;36m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:104:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const string&, const M_string&)[m[K’
+  104 |     [01;36m[KNodeHandle[m[K(const std::string& ns = std::string(), const M_string& remappings = M_string());
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:104:35:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+  104 |     NodeHandle([01;36m[Kconst std::string& ns = std::string()[m[K, const M_string& remappings = M_string());
+      |                [01;36m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:63: CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,355 @@
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:16:15:[m[K [01;35m[Kwarning: [m[Kcharacter constant too long for its type
+   16 |   n2.getParam([01;35m[K'scan_topic'[m[K,scan_topic);
+      |               [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:17:15:[m[K [01;35m[Kwarning: [m[Kcharacter constant too long for its type
+   17 |   n2.getParam([01;35m[K'queue'[m[K,queue_size);
+      |               [01;35m[K^~~~~~~[m[K
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:13:25:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::NodeHandle(char)[m[K’
+   13 |   ros::NodeHandle n2('~'[01;31m[K)[m[K;
+      |                         [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:156:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const ros::NodeHandle&, const string&, const M_string&)[m[K’
+  156 |     [01;36m[KNodeHandle[m[K(const NodeHandle& parent, const std::string& ns, const M_string& remappings);
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:156:5:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 1 provided
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:134:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const ros::NodeHandle&, const string&)[m[K’
+  134 |     [01;36m[KNodeHandle[m[K(const NodeHandle& parent, const std::string& ns);
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:134:5:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:112:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const ros::NodeHandle&)[m[K’
+  112 |     [01;36m[KNodeHandle[m[K(const NodeHandle& rhs);
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:112:34:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar[m[K’ to ‘[01m[Kconst ros::NodeHandle&[m[K’
+  112 |     NodeHandle([01;36m[Kconst NodeHandle& rhs[m[K);
+      |                [01;36m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:104:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::NodeHandle::NodeHandle(const string&, const M_string&)[m[K’
+  104 |     [01;36m[KNodeHandle[m[K(const std::string& ns = std::string(), const M_string& remappings = M_string());
+      |     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:104:35:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kchar[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+  104 |     NodeHandle([01;36m[Kconst std::string& ns = std::string()[m[K, const M_string& remappings = M_string());
+      |                [01;36m[K~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:16:38:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::getParam(int, std::string&)[m[K’
+   16 |   n2.getParam('scan_topic',scan_topic[01;31m[K)[m[K;
+      |                                      [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1672:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::string&) const[m[K’
+ 1672 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::string& s) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1672:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1672 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::string& s) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1683:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, double&) const[m[K’
+ 1683 |   bool [01;36m[KgetParam[m[K(const std::string& key, double& d) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1683:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1683 |   bool getParam([01;36m[Kconst std::string& key[m[K, double& d) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1694:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, float&) const[m[K’
+ 1694 |   bool [01;36m[KgetParam[m[K(const std::string& key, float& f) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1694:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1694 |   bool getParam([01;36m[Kconst std::string& key[m[K, float& f) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1705:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, int&) const[m[K’
+ 1705 |   bool [01;36m[KgetParam[m[K(const std::string& key, int& i) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1705:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1705 |   bool getParam([01;36m[Kconst std::string& key[m[K, int& i) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1716:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, bool&) const[m[K’
+ 1716 |   bool [01;36m[KgetParam[m[K(const std::string& key, bool& b) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1716:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1716 |   bool getParam([01;36m[Kconst std::string& key[m[K, bool& b) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1727:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, XmlRpc::XmlRpcValue&) const[m[K’
+ 1727 |   bool [01;36m[KgetParam[m[K(const std::string& key, XmlRpc::XmlRpcValue& v) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1727:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1727 |   bool getParam([01;36m[Kconst std::string& key[m[K, XmlRpc::XmlRpcValue& v) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1739:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<std::__cxx11::basic_string<char> >&) const[m[K’
+ 1739 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<std::string>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1739:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1739 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<std::string>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1750:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<double>&) const[m[K’
+ 1750 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<double>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1750:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1750 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<double>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1761:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<float>&) const[m[K’
+ 1761 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<float>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1761:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1761 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<float>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1772:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<int>&) const[m[K’
+ 1772 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<int>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1772:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1772 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<int>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1783:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<bool>&) const[m[K’
+ 1783 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<bool>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1783:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1783 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<bool>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1795:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&) const[m[K’
+ 1795 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, std::string>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1795:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1795 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, std::string>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1806:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, double>&) const[m[K’
+ 1806 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, double>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1806:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1806 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, double>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1817:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, float>&) const[m[K’
+ 1817 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, float>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1817:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1817 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, float>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1828:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, int>&) const[m[K’
+ 1828 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, int>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1828:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1828 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, int>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1839:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, bool>&) const[m[K’
+ 1839 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, bool>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1839:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1839 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, bool>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:17:33:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::getParam(int, int&)[m[K’
+   17 |   n2.getParam('queue',queue_size[01;31m[K)[m[K;
+      |                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1672:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::string&) const[m[K’
+ 1672 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::string& s) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1672:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1672 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::string& s) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1683:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, double&) const[m[K’
+ 1683 |   bool [01;36m[KgetParam[m[K(const std::string& key, double& d) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1683:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1683 |   bool getParam([01;36m[Kconst std::string& key[m[K, double& d) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1694:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, float&) const[m[K’
+ 1694 |   bool [01;36m[KgetParam[m[K(const std::string& key, float& f) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1694:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1694 |   bool getParam([01;36m[Kconst std::string& key[m[K, float& f) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1705:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, int&) const[m[K’
+ 1705 |   bool [01;36m[KgetParam[m[K(const std::string& key, int& i) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1705:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1705 |   bool getParam([01;36m[Kconst std::string& key[m[K, int& i) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1716:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, bool&) const[m[K’
+ 1716 |   bool [01;36m[KgetParam[m[K(const std::string& key, bool& b) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1716:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1716 |   bool getParam([01;36m[Kconst std::string& key[m[K, bool& b) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1727:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, XmlRpc::XmlRpcValue&) const[m[K’
+ 1727 |   bool [01;36m[KgetParam[m[K(const std::string& key, XmlRpc::XmlRpcValue& v) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1727:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1727 |   bool getParam([01;36m[Kconst std::string& key[m[K, XmlRpc::XmlRpcValue& v) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1739:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<std::__cxx11::basic_string<char> >&) const[m[K’
+ 1739 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<std::string>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1739:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1739 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<std::string>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1750:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<double>&) const[m[K’
+ 1750 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<double>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1750:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1750 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<double>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1761:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<float>&) const[m[K’
+ 1761 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<float>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1761:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1761 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<float>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1772:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<int>&) const[m[K’
+ 1772 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<int>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1772:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1772 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<int>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1783:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::vector<bool>&) const[m[K’
+ 1783 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::vector<bool>& vec) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1783:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1783 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::vector<bool>& vec) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1795:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&) const[m[K’
+ 1795 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, std::string>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1795:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1795 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, std::string>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1806:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, double>&) const[m[K’
+ 1806 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, double>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1806:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1806 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, double>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1817:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, float>&) const[m[K’
+ 1817 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, float>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1817:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1817 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, float>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1828:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, int>&) const[m[K’
+ 1828 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, int>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1828:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1828 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, int>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1839:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool ros::NodeHandle::getParam(const string&, std::map<std::__cxx11::basic_string<char>, bool>&) const[m[K’
+ 1839 |   bool [01;36m[KgetParam[m[K(const std::string& key, std::map<std::string, bool>& map) const;
+      |        [01;36m[K^~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:1839:36:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst string&[m[K’ {aka ‘[01m[Kconst std::__cxx11::basic_string<char>&[m[K’}
+ 1839 |   bool getParam([01;36m[Kconst std::string& key[m[K, std::map<std::string, bool>& map) const;
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::subscribe(std::string&, int&, void (&)())[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;31m[K)[m[K;
+      |                                                  [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:402:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M), T*, const ros::TransportHints&)[m[K’
+  402 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M), T* obj,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:402:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(M)[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:413:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M) const, T*, const ros::TransportHints&)[m[K’
+  413 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M) const, T* obj,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:413:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(M) const[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:465:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&), T*, const ros::TransportHints&)[m[K’
+  465 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:465:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const boost::shared_ptr<const M>&)[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:475:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&) const, T*, const ros::TransportHints&)[m[K’
+  475 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:475:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const boost::shared_ptr<const M>&) const[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:529:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M), const boost::shared_ptr<U>&, const ros::TransportHints&)[m[K’
+  529 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M),
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:529:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(M)[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:540:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M) const, const boost::shared_ptr<U>&, const ros::TransportHints&)[m[K’
+  540 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M) const,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:540:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(M) const[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:594:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&), const boost::shared_ptr<U>&, const ros::TransportHints&)[m[K’
+  594 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:594:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const boost::shared_ptr<const M>&)[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:605:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&) const, const boost::shared_ptr<U>&, const ros::TransportHints&)[m[K’
+  605 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:605:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::*)(const boost::shared_ptr<const M>&) const[m[K’ and ‘[01m[Kvoid (*)()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:656:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (*)(M), const ros::TransportHints&)[m[K’
+  656 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(*fp)(M), const TransportHints& transport_hints = TransportHints())
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:656:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:704:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (*)(const boost::shared_ptr<const M>&), const ros::TransportHints&)[m[K’
+  704 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(*fp)(const boost::shared_ptr<M const>&), const TransportHints& transport_hints = TransportHints())
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:704:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:750:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, const boost::function<void(const boost::shared_ptr<const M>&)>&, const VoidConstPtr&, const ros::TransportHints&)[m[K’
+  750 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, const boost::function<void (const boost::shared_ptr<M const>&)>& callback,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:750:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst boost::function<void(const boost::shared_ptr<const M>&)>[m[K’ and ‘[01m[Kvoid()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:799:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class M, class C> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, const boost::function<void(C)>&, const VoidConstPtr&, const ros::TransportHints&)[m[K’
+  799 |   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, const boost::function<void (C)>& callback,
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:799:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:20:50:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst boost::function<void(C)>[m[K’ and ‘[01m[Kvoid()[m[K’
+   20 |   nodeHandle.subscribe(scan_topic,queue_size,call[01;36m[K)[m[K;
+      |                                                  [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/noetic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1[m[K:
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:836:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros::Subscriber ros::NodeHandle::subscribe(ros::SubscribeOptions&)[m[K’
+  836 |   Subscriber [01;36m[Ksubscribe[m[K(SubscribeOptions& ops);
+      |              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/noetic/include/ros/node_handle.h:836:14:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 3 provided
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:63: CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

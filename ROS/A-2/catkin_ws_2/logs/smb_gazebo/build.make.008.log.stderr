@@ -1,0 +1,13 @@
+In file included from [01m[K/usr/include/gazebo-11/gazebo/physics/ModelState.hh:28[m[K,
+                 from [01m[K/usr/include/gazebo-11/gazebo/physics/Model.hh:29[m[K,
+                 from [01m[K/usr/include/gazebo-11/gazebo/physics/Actor.hh:30[m[K,
+                 from [01m[K/usr/include/gazebo-11/gazebo/physics/physics.hh:2[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_common/smb_gazebo/include/smb_gazebo/OdometrySource.hpp:38[m[K,
+                 from [01m[K/home/nischayvagarwal/catkin_ws_2/src/smb_common/smb_gazebo/src/OdometrySource.cpp:22[m[K:
+[01m[K/usr/include/gazebo-11/gazebo/physics/State.hh:26:10:[m[K [01;31m[Kfatal error: [m[Ksdf/sdf.hh: No such file or directory
+   26 | #include [01;31m[K<sdf/sdf.hh>[m[K
+      |          [01;31m[K^~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/odometry_source_plugin.dir/build.make:63: CMakeFiles/odometry_source_plugin.dir/src/OdometrySource.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:275: CMakeFiles/odometry_source_plugin.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
